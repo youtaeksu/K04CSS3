@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 1px solid #c7c7c7;
+            background-color: #dddddd;
+            border-radius: 10px;
+        }
+        input, button {
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            font-size: 1.5em; color: #ffffff;
+        }
+        input.key_type1{
+            background-color: #7b7b7b; width: 204px;
+        }
+        button.key_type2{
+            background-color: #373737; width: 100px;
+        }
+        button.key_type3{
+            background-color: #FA960A; width: 100px;
+        }
+        #lcd{
+            background-color: #70C738; font-size: 40px;
+            color: #373737; font-weight: bold;
+            text-align: right; border-radius: 10px; 
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function inputNum(num){
+            document.getElementById("lcd").innerHTML += num;
+        }
+        function clearScreen(){
+            document.getElementById("lcd").innerHTML = 0;
+        }
+    </script>
+</head>
+<body>
+    <!-- table>tr*3>td*4 -->
+    <table border="0" align="center">
+        <tr>
+            <td colspan="4">
+                <div style="width: 410px; overflow: hidden;">
+                    <div id="lcd">123,456</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="Backspace" class="key_type1"></td>
+            <td colspan="2"><input type="button" value="C" class="key_type1" onclick="clearScreen()"></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="key_type2" onclick="inputNum(1)">1</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum(2)">2</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum(3)">3</button></td>
+            <td><button type="button" class="key_type3" onclick="inputNum('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="key_type2" onclick="inputNum(4)">4</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum(5)">5</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum(6)">6</button></td>
+            <td><button type="button" class="key_type3" onclick="inputNum('x')">x</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="key_type2" onclick="inputNum(7)">7</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum(8)">8</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum(9)">9</button></td>
+            <td><button type="button" class="key_type3" onclick="inputNum('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="key_type2" onclick="inputNum('=')">=</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum(0)">0</button></td>
+            <td><button type="button" class="key_type2" onclick="inputNum('.')">.</button></td>
+            <td><button type="button" class="key_type3" onclick="inputNum('-')">-</button></td>
+        </tr>
+    </table>
+</body>
+</html>

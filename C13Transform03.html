@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width:100px; height:100px; text-align:center;
+            line-height:100px;
+            /* 적용시간 2초 */
+            transition-duration:2s;
+        }
+        .trans1{background-color:cyan;}
+        .trans2{background-color:purple;}
+        .trans1:hover{
+            background-color:red;
+            /* 
+            Alpha(투명도)값 : 0에 가까울수록 투명해지고, 1에 가까울수록 선명해진다.
+            translateX : 수평방향으로 이동(Y라면 수직방향으로 이동한다.)
+            rotate : 시계방향으로 90도 회전(양수인경우)
+            scaleX : 수평방향으로 크기 조정
+            */
+            opacity:0.4;
+            transform:translateX(400px)
+                    rotate(90deg)
+                    scaleX(0.1);
+        }
+        .trans2:hover{
+            background-color:green;
+            /* 
+            translate(x축, y축) : 각 축의 순서대로 이동한다.
+            scale(x축, y축) : 각 축의 순서대로 크기조정(1보다 크므로 확대됨)
+            rotate : 음수이므로 반시계 반향으로 180도 회전
+            */
+            transform:translate(400px, 100px)
+                    scale(1.5, 1.5)
+                    rotate(-180deg);
+        }
+    </style>
+</head>
+<body>
+    <h2>Transform(변형3)</h2>
+
+    <div class="trans1">
+        Trans1
+    </div>
+    <div class="trans2">
+        Trans2
+    </div>
+</body>
+</html>

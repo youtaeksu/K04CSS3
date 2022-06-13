@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #topmenu li{
+            /* block속성을 inline속성으로 변경하여 가로형배치가 되도록 한다. */
+            display: inline;
+            /* li태그의 박스중 오른쪽만 테두리를 지정한다. */
+            border-right: 2px solid gray;
+            /* 컨텐츠와 패딩을 지정하여 테두리사이의 간격을 넓힌다. */
+            padding-right: 7px;
+        }
+        /* 마지막 li태그의 테두리는 제거한다. */
+        #topmenu li:last-child{
+            border: none; /* 0px도 가능함 */
+        }
+        #topmenu li a{
+            text-decoration: none; color:black;
+        }
+        #topmenu li a:hover{
+            text-decoration: underline; color:silver;
+        }
+        /* 블릿의 모양과 위치설정. 영문대문자 및 영역의 안쪽으로 배치 */
+        .sport {
+            border:5px solid blue;
+            list-style-type:upper-alpha;
+            list-style-position:inside;
+        }
+        .sport li {
+            border:1px solid red;
+        }
+        /* 기본 블릿 대신 커스텀 이미지로 설정 */
+        .food_image {
+            list-style-image:url('./images/bullet.png');
+        }
+        /* 
+        리스트 블릿만 제거하는 경우 none으로 설정한다.
+        이 경우 블릿이 있던 부분에 들여쓰기 효과가 생기므로 margin을
+        음수값으로 지정하여 좌측으로 위치를 옮길수 있다.
+        단, padding은 음수값을 지정할 수 없다.
+        */
+        ul.bullet {
+            list-style-type:none;
+            border:1px solid yellowgreen;
+            margin-left:-40px;
+        }
+    </style>
+</head>
+<body>
+    <h2>ul/ol/li 태그로 메뉴 구현하기</h2>
+    <!-- fileset>legend+ul#topmenu>(li>a[href=#])*5 -->
+    <fieldset>
+        <legend>Top메뉴</legend>
+        <ul id="topmenu">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>당신이 가장 좋아하는 스포츠는?</legend>
+        <!-- ul.sport>li*5 -->
+        <ul class="sport">
+            <li>축구</li>
+            <li>야구</li>
+            <li>배구</li>
+            <li>농구</li>
+            <li>핸드볼</li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>당신이 가장 좋아하는 음식은?</legend>
+        <!-- ul.food_image>li*6 -->
+        <ul class="food_image">
+            <li>짜장면</li>
+            <li>짬뽕</li>
+            <li>된장찌게</li>
+            <li>김치찌게</li>
+            <li>물냉</li>
+            <li>비냉</li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>당신이 좋아하는 위인은?</legend>
+        <h3>블릿만 제거하기</h3>
+        그냥Text
+        <ul class="bullet">
+            <li>세종대왕</li>
+            <li>이순신</li>
+            <li>정조대왕</li>
+        </ul>
+    </fieldset>
+</body>
+</html>

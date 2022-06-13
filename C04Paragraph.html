@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    수평방향에서의 정렬
+    -블럭엘리먼트 : 컨텐츠의 크기에 상관없이 하나의 블럭을 차지하므로 우측공간이
+        충분하여 컨텐츠는 우측으로 정렬할 수 있다.
+    -인라인엘리먼트 : 컨텐츠의 크기만큼만 영역을 차지하므로 컨텐츠가 움직일 공간이
+        없어 정렬되지 않는다. 만약 정렬이 필요하다면 부모엘리먼트에서 text-align을
+        설정해야한다.
+     -->
+    <h2>문단관련 CSS 속성들</h2>
+    <div style="border:1px blue dotted; width:400px;">
+        <h2>컨텐츠 수평방향 정렬</h2>
+        <!-- 우측정렬된다. -->
+        <div style="border:1px solid red; text-align:right;">
+            블럭엘리먼트
+        </div>
+        <!-- 우측공간이 부족하여 우측정렬이 안된다. 따라서 이 경우 정렬이 필요하다면
+        부모엘리먼트를 추가한 후 부모쪽에서 text-align을 적용해야 한다. -->
+        <!-- <div style="text-align:right;"> -->
+        <span style="border:1px solid blue; text-align:right;">
+            인라인엘리먼트
+        </span>
+        <!-- </div> -->
+    </div>
+
+    <!-- 
+    line-height : 줄간격. 즉 라인사이의 간격을 띄우는데 블럭과 인라인은 조금 다르게
+        적용된다.
+        -블럭엘리먼트 : 컨텐츠의 영역 중 세로 영역이 늘어나서 마치 줄간격이 생긴것처럼
+            보인다.
+        -인라인엘리먼트 : 컨텐츠의 영역은 변화가 없고, 지정된 크기만큼 줄간격이 생겨
+            줄간격이 벌어진다.
+     -->
+    <h3>줄사이의 간격</h3>
+    <h4 style="line-height:2em; border:1px solid blue;">
+        블럭엘리먼트1에 줄간격 적용
+    </h4>
+    <h4 style="border:1px solid black;">블럭 엘리먼트2</h4>
+    <h4 style="border:1px solid black;">블럭 엘리먼트3</h4>
+
+    <div class="inline">
+        <span style="line-height:5em; border:1px solid black;">
+            인라인엘리먼트1</span><br />
+        <span style="border:1px solid black;">인라인엘리먼트2</span>
+        <br />
+        <span style="border:1px solid black;">인라인엘리먼트3</span>
+    </div>
+
+    <h3>수직상태에서의 가운데 정렬</h3>
+    <!-- div태그의 height와 line-height의 값을 동일하게 부여하면 세로상태의
+    가운데 정렬이 된다. 블럭엘리먼트에 line-height를 부여했을때 영역이 상하로   
+    늘어나는것을 활용한것이다. -->
+    <h4>블럭엘리먼트 사용시 방법1</h4>
+    <div style="border:1px solid black; height:200px; width:200px;
+        line-height:200px;">
+        나는 텍스트1
+    </div>
+
+    <!-- div태그 내부의 padding을 지정헤서 텍스트를 아래쪽으로 밀어준다.
+    이 경우 세로영역이 늘어나므로 사이즈는 별도로 확인해서 지정해야 한다. -->
+    <h4>블럭엘리먼트 사용시 방법2</h4>
+    <div style="border:1px solid red; height:100px; width:200px;
+        padding-top:100px;">
+        나는 텍스트2
+    </div>
+
+    <!-- 
+        인라인엘리먼트의 경우 세로상태에서의 가운데 정렬은 vetical-align을 사용한다.
+        가로정렬시 text-align : left, center, right
+        세로정렬시: vertical-align : top, middle, left
+     -->
+    <h4>인라인엘리먼트 사용시</h4>
+    <table border="1" width="300">
+    <tr>
+        <td style="height:100px; vertical-align:top">인라인엘리먼트 세로정렬</td>
+    </tr>
+    <tr>
+        <td style="height:100px; vertical-align:middle">인라인엘리먼트 세로정렬</td>
+    </tr>
+    <tr>
+        <td style="height:100px; vertical-align:bottom">인라인엘리먼트 세로정렬</td>
+    </tr>
+    </table>
+
+    <!-- 
+        각기 다른 길이의 단어를 사용함으로써 발생되는 우측의 불규칙적인 여백을
+        깔끔하게 정리해주는 역활을 한다.
+     -->
+    <h2>배분정렬</h2>
+    <p style="border:1px solid blue; text-align:justify;">
+    [스포티비뉴스=박건도 기자] 경기 도중 일어날 수 있는 해프닝이었다.
+    토트넘 홋스퍼는 지난 8일(한국시간) 영국 리버풀의 안필드에서 2021-22시즌 잉글랜드 프리미어리그(PL) 36라운드 리버풀전을 치렀다.
+    이날 토트넘은 손흥민(29)의 선제골에 힘입어 리버풀 원정에서 1-1 무승부를 기록하며 승점 62를 기록했다. 리버풀은 승점 83째를 올렸다.
+    두 팀 모두 아쉬울 수밖에 없다. 맨체스터 시티는 홈에서 뉴캐슬 유나이티드를 잡으며 승점 86으로 리그 선두를 재탈환했다. 
+    아스널은 리즈 유나이티드를 2-1로 이겨 5위 토트넘과 승점 4 차이로 벌렸다.
+    영국 매체 ‘HITC’는 9일 토트넘과 리버풀 경기 도중 한 장면을 조명했다. 
+    매체는 “NBC 스포츠 해설자 리 딕슨이 후반 초반 손흥민이 해리 케인(28)에게 사과하는 모습을 발견했다”라고 보도했다.
+    토트넘은 0-0으로 팽팽히 맞서던 후반 초반 역습 기회를 맞았다. 손흥민은 빠른 드리블로 순식간에 리버풀 진영에 도달했다. 
+    케인은 왼쪽 측면에서 공을 기다리고 있었다. 해설자 딕슨은 “손흥민의 우유부단한 결정이 아쉬웠다. 
+    케인에게 공을 내줬다면 충분히 득점이 될 수 있는 상황이었다”라고 설명했다.
+    이어 “손흥민은 케인에게 사과했다. 그는 케인의 표정이 일그러지는 걸 봤다”라고 당시 상황을 묘사했다.
+    하지만 몇 분 뒤, 손흥민은 앞선 실수를 완벽하게 만회했다. 
+    후반 11분 라이언 세세뇽(21)의 크로스를 받아 침착한 왼발 슈팅으로 토트넘에 선제골을 안겼다. 
+    아쉬움을 드러냈던 케인은 동료의 득점에 기쁨을 감추지 못했다. 손흥민과 함께 골 세리머니로 분위기를 한껏 끌어올렸다.
+    전반 내내 밀리던 토트넘은 손흥민의 득점 덕분에 경기 양상을 뒤집었다. 
+    골 직후 데얀 클루셉스키(22)의 과감한 중거리 슈팅으로 리버풀의 골문을 또다시 위협했다. 이전까지 웅크리고 있던 모습과 달랐다.
+    그러나 토트넘은 후반 28분 루이스 디아스(25)에게 통한의 동점골을 내주며 승점 1 획득에 그쳤다. 
+    손흥민은 후반 추가 시간이 돼서야 교체됐다. 경기 조율에 집중했던 케인은 끝내 득점을 기록하지 못했다.
+    Copyright ⓒ SPOTV NEWS, 무단전재 및 재배포 금지
+    </p>
+
+    <h2>들여쓰기</h2>
+    <!-- 
+        블럭엘리먼트는 공간이 충분하므로 text-indent를 통해 들여쓰기 할수있다.
+     -->
+    <div style="border:1px solid red; text-indent:1em;">
+        블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+        블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+        블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;블럭엘리먼트&nbsp;
+    </div>
+    <!-- 
+        인라인 엘리먼트는 공간이 없으므로 부모엘리먼트에서 패딩을 적용해서 밀어줘야한다.
+     -->
+    <div style="border:1px solid blue; padding-left:10px;">
+        <span style="border:1px solid #000000; text-indent:50em;">
+        인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+        인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+        인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+        인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;인라인엘리먼트&nbsp;
+        </span>
+    </div>
+    </body>
+    </html>

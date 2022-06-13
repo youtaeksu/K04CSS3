@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* 패딩 속성값 개별적으로 지정하기. */
+    #div1 {
+        border:1px solid gray;
+        padding-top:20px;
+        padding-right:20px;
+        padding-bottom:20px;
+        padding-left:20px;
+    }
+    /* 상하좌우를 한꺼번에 20px로 지정 */
+    #div2 {
+        border:1px solid red;
+        padding:20px;
+    }   
+    /* 
+    속성값이 2개일때는 상하, 좌우 순으로 지정됨
+    */
+    #div3 {
+        border:1px solid blue;
+        padding:30px 50px;
+    }
+    /* 
+    속성값이 3개일때는 상, 좌우, 하 순으로 지정됨
+    */
+    #div4 {
+        border:1px solid green;
+        padding:30px 100px 10px;
+    }
+    /* 
+    속성값이 4개일때는 상, 우, 하, 좌 순으로 지정됨
+    */
+    #div5 {
+        border:1px solid black;
+        padding:10px 30px 50px 70px;
+    }
+</style>
+</head>
+<body>
+    <h2>여백관련속성</h2>
+
+    <h3>padding(안쪽여백) 관련 속성</h3>
+
+    <h4>블럭엘리먼트</h4>
+
+    <div id="div1">
+        "상우하좌" 여백 각각 지정하기
+    </div>
+    <div id="div2">
+        "상우하좌" 여백 동시 지정하기
+    </div>
+    <div id="div3">
+        "상하" "좌우" 여백 각각 지정하기
+    </div>
+    <div id="div4">
+        "상" "좌우" 하" 여백 각각 지정하기
+    </div>
+    <div id="div5">
+        "상" "우" "하" "좌" 여백 각각 지정하기
+    </div>
+    <!-- 
+    인라인 엘리먼트는 패딩값을 부여했을때 영역이 늘어나긴 하지만 컨텐츠에
+    영향을 주는것은 좌측과 우측만이다. 상단과 하단의 경우 다른 컨텐츠에
+    영향을 주지 않으므로 이때는 부모엘리먼트를 통해 간접적으로 설정해야한다.
+     -->
+    <h4>인라인 엘리먼트</h4>
+    <span style="border:1px solid orange;
+        padding:20px 30px 20px 20px;">  
+        나는 span 태그 입니다. 인라인엘리먼트이죠~~
+    </span>
+    <br />
+    span태그 아래쪽 텍스트~~~~~~
+
+    <style>
+        .box1{border:1px solid red;}
+        .box2{border:1px solid green;}
+    </style>
+    <h4>block과 block의 마진</h4>
+    <!-- 
+        블럭엘리먼트인 Block1번과 Block2번에 각각 아래, 위로 마진을
+        적용했지만 큰값 하나만 적용된다. 따라서 아래의 경우 100px만큼만
+        마진이 적용된다.
+     -->
+    <fieldset>
+        <legend>Case1</legend>
+        <div class="box1" style="margin-bottom:100px;">Block1번</div>
+        <div class="box2" style="margin-top:70px;">Block2번</div>
+    </fieldset>
+
+    <h4>block과 inline의 마진</h4>
+    <!-- 
+        Block에서 아래로 설정한 마진은 적용된다. 따라서 Inline이 아래로
+        밀려난다. 하지만 Inline에서 위로 적용한 마진은 적용되지 않는다.
+        패딩과 동일하게 Inline엘리먼트는 좌,우측의 마진만 적용된다.
+     -->
+    <fieldset>
+        <legend>Case2</legend>
+        <div class="box1" style="margin-bottom:30px;">Block</div>
+        <span class="box2" style="margin-top:50px; margin-left:50px;">Inline</span>
+    </fieldset>
+
+    <h4>inline과 inline의 마진</h4>
+    <!--
+        인라인엘리먼트는 위, 아래로의 마진은 적용되지 않으므로 필요시
+        부모엘리먼트와의 마진을 설정해야 한다. 단 좌, 우측의 마진은 적용된다.
+        또한 아래의 경우 1번에서 10px, 2번에서 20px을 적용하면 전체 30px만큼의
+        간격이 벌어진다.
+     -->
+    <fieldset>
+        <legend>Case3</legend>
+        <span class="box1" 
+        style="margin-left:50px; margin-right:0px;">Inline1번</span>
+        <span class="box2" 
+        style="margin-left:20px;">Inline2번</span>
+    </fieldset>
+</body>
+</html>
